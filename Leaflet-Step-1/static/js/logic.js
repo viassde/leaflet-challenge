@@ -14,8 +14,8 @@ function createFeatures(earthquakeData) {
     // Define a function to run once for each feature in the array
     // Give each feature a popup describing the place and time of the earthquake
     function onEachFeature(feature, layer) {
-        layer.bindPopup("<h3>" + feature.properties.place +
-            "</h3><hr><p>" + new Date(feature.properties.time) + "</p>");
+        layer.bindPopup("<h3>" + 'Location: ' + feature.properties.place +
+            "</h3><hr><p>" +'Magnitude: ' + feature.properties.mag + "</p>");
     }
 
     function pointToLayer(feature, latlng) {
@@ -98,9 +98,6 @@ function createMap(earthquakes) {
         collapsed: false
     }).addTo(myMap);
     
-    // L.control.layers(overlayMaps, {
-    //     collapsed: false
-    // }).addTo(myMap);
 
     function getColor(d) {
         return d > 5 ? '#bd0026' :
